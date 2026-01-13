@@ -37,7 +37,7 @@ return [
 
     'service' => [
         'google_maps' => [
-            'api_key' => 'AIzaSyA6Uu_8c2CF9ZpX_2by8WBnBMmbi4ILihc',
+            'api_key' => '',
         ],
     ],
 
