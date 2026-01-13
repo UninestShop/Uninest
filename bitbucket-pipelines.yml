@@ -1,0 +1,19 @@
+image: php:8.2
+pipelines:
+  branches:
+    'master':    
+      - step:
+          size: 4x
+          runtime:
+           cloud:
+            atlassian-ip-ranges: true
+          name: "Deploy to Staging"
+          deployment: staging
+          script:
+            - apt-get update
+            - apt-get install -y openssh-client
+            - ssh -v -o StrictHostKeyChecking=no -p "${PORT}" "${USER}@${IP}" "
+                cd '${REPO_DIR}' && 
+                git pull ${ORIGIN} master && 
+                composer update --no-interaction --prefer-dist --optimize-autoloader &&
+                php artisan optimize:clear "
