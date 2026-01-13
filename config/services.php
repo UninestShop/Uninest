@@ -37,7 +37,7 @@ return [
 
     'service' => [
         'google_maps' => [
-            'api_key' => '',
+            'api_key' => env('GOOGLE_API_KEY'),
         ],
     ],
 
